@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'components/BannerComponent/BannerComponent.dart';
+import 'components/CoursesCard/CoursesCard.dart';
 
 void main() => runApp(CoursesApp());
 
@@ -53,6 +54,46 @@ class _HomeScreen extends State<HomeScreen> {
                   icon: Icon(Icons.search, color: Theme.of(context).accentColor,),
                   hintStyle: TextStyle(color: Theme.of(context).accentColor, fontSize: 12.0),
                   hintText: "Search to start a new courses...",
+                ),
+              ),
+            ),
+            SizedBox(height: 20.0,),
+            Container(
+              child: Expanded(
+                flex: 1,
+                child: Container(
+                  width: double.infinity,
+                  padding: EdgeInsets.symmetric(vertical: 20.0),
+                  decoration: BoxDecoration(  
+                    color: Color(0xFFF3F3F3),
+                    borderRadius: BorderRadius.only(topLeft: Radius.circular(25.0), topRight: Radius.circular(25.0))
+                  ),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 24.0),
+                        child: Text("Popular courses", style: TextStyle(color: Theme.of(context).accentColor, fontSize: 17.0, fontWeight: FontWeight.w500)),
+                      ),
+                      SizedBox(height: 10.0,),
+                      Expanded(
+                        flex: 2,
+                        child: ListView(
+                          scrollDirection: Axis.horizontal,
+                          children: [
+                            CoursesCard(title: "Mobile development", content: "We will develop our first application starting from blank page.", image: "assets/images/cover-image-1.png", colors: [Color(0xFF253DEA), Color(0xFF5568F1)]),
+                            CoursesCard(title: "UX designer", content: "Improve the experience of your users by designing products that are both pleasant.", image: "assets/images/cover-image-2.png", colors: [Color(0xFFE92575), Color(0xFFFF4893)]),
+                            CoursesCard(title: "Mobile development", content: "We will develop our first application starting from blank page.", image: "assets/images/cover-image-1.png", colors: [Color(0xFF253DEA), Color(0xFF5568F1)]),
+                            CoursesCard(title: "Mobile development", content: "We will develop our first application starting from blank page.", image: "assets/images/cover-image-1.png", colors: [Color(0xFF253DEA), Color(0xFF5568F1)]),
+                            CoursesCard(title: "Mobile development", content: "We will develop our first application starting from blank page.", image: "assets/images/cover-image-1.png", colors: [Color(0xFF253DEA), Color(0xFF5568F1)]),
+                            CoursesCard(title: "Mobile development", content: "We will develop our first application starting from blank page.", image: "assets/images/cover-image-1.png", colors: [Color(0xFF253DEA), Color(0xFF5568F1)]),
+                            CoursesCard(title: "Mobile development", content: "We will develop our first application starting from blank page.", image: "assets/images/cover-image-1.png", colors: [Color(0xFF253DEA), Color(0xFF5568F1)]),
+                          ]
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
