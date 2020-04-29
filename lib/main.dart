@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'components/BannerComponent/BannerComponent.dart';
 import 'components/CoursesCard/CoursesCard.dart';
+import 'components/CoursesItemCard/CoursesItemCard.dart';
 
 void main() => runApp(CoursesApp());
 
@@ -58,30 +59,29 @@ class _HomeScreen extends State<HomeScreen> {
               ),
             ),
             SizedBox(height: 20.0,),
-            Container(
-              child: Expanded(
-                flex: 1,
-                child: Container(
-                  width: double.infinity,
-                  padding: EdgeInsets.symmetric(vertical: 20.0),
-                  decoration: BoxDecoration(  
-                    color: Color(0xFFF3F3F3),
-                    borderRadius: BorderRadius.only(topLeft: Radius.circular(25.0), topRight: Radius.circular(25.0))
-                  ),
+
+            Expanded(
+              child: Container(
+                width: double.infinity,
+                decoration: BoxDecoration(  
+                  color: Color(0xFFF3F3F3),
+                  borderRadius: BorderRadius.only(topLeft: Radius.circular(25.0), topRight: Radius.circular(25.0))
+                ),
+                child: SingleChildScrollView(
                   child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
+                      SizedBox(height: 20.0,),
                       Padding(
                         padding: EdgeInsets.symmetric(horizontal: 24.0),
                         child: Text("Popular courses", style: TextStyle(color: Theme.of(context).accentColor, fontSize: 17.0, fontWeight: FontWeight.w500)),
                       ),
                       SizedBox(height: 10.0,),
-                      Expanded(
-                        flex: 2,
+                      Container(
+                        height: 210.0,
                         child: ListView(
                           scrollDirection: Axis.horizontal,
-                          children: [
+                          children: <Widget>[
                             CoursesCard(title: "Mobile development", content: "We will develop our first application starting from blank page.", image: "assets/images/cover-image-1.png", colors: [Color(0xFF253DEA), Color(0xFF5568F1)]),
                             CoursesCard(title: "UX designer", content: "Improve the experience of your users by designing products that are both pleasant.", image: "assets/images/cover-image-2.png", colors: [Color(0xFFE92575), Color(0xFFFF4893)]),
                             CoursesCard(title: "Mobile development", content: "We will develop our first application starting from blank page.", image: "assets/images/cover-image-1.png", colors: [Color(0xFF253DEA), Color(0xFF5568F1)]),
@@ -92,11 +92,25 @@ class _HomeScreen extends State<HomeScreen> {
                           ]
                         ),
                       ),
-                    ],
-                  ),
+
+                      Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 24.0),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            SizedBox(height: 20.0,),
+                            Text("Courses taken", style: TextStyle(color: Theme.of(context).accentColor, fontSize: 17.0, fontWeight: FontWeight.w500)),
+                            SizedBox(height: 10.0,),
+                            CoursesItemCard(title: "Get started with Adobe Photoshop !", content: "Reveal your creative talents through this course by articulating around three learning themes, is progressive and adapted to your level.", nbLessons: 6,),
+                            CoursesItemCard(title: "Web development", content: "Take your first steps in the world of web development: create websites and give life to your imagination through this online course.", nbLessons: 6, colors: [Color(0xFF9425E7), Color(0xFFBA5EFF)],),
+                          ]
+                        )
+                      ),
+                    ]
+                  )
                 ),
-              ),
-            ),
+              )
+            )
           ]
         ),
       ),
